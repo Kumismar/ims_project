@@ -14,22 +14,22 @@ Harvester::Harvester(int quality)
 
 void Harvester::Behavior() 
 {
+    // Pokud prileteli mimozemstani, kombajn vubec nepracuje
     Seize(aliensCame);
     Release(aliensCame);
+    // Inicializace skladu zrni
     Enter(grainWarehouse, grainWarehouse.Capacity());
     while (hectares.Free() != 0) {
         int probab = (int)(Uniform(0, 100));
-        if (probab < 5) {
+        if (probab < 2) {
             // Porucha kombajnu
-            Print("KOMBAJN SE POJEBAL\n");
             double waittime = Exponential(twoDays);
             Wait(waittime);
-            oprava(waittime);
+            harvesterRepair(waittime);
         }
         Enter(cars, 1);
         Enter(hectares, 1);
         Seize(day);
-        Print("Kombajn pracuje na zrni\n");
         Wait(Normal(harvesting, harvestingDispersion));
         (new Car)->Activate();
         Release(day);

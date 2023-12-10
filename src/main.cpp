@@ -20,20 +20,21 @@ Store hectares("", 200);
 Store cars("", 2);
 Store grainWarehouse("", 1000);
 
-Stat p("Mnozstvi mouky");
-Stat q("Kvalita obili");
-Stat oprava("oprava");
-Stat vykecavani("vykecavani");
+Stat flourStat("Mnozstvi mouky");
+Stat qualityStat("Kvalita obili");
+Stat harvesterRepair("Oprava kombajnu");
+Stat grainDeployment("Vykecavani ridice u mlyna");
+Stat hectaresLeft("Nesklizene hektary pole");
+Stat aliensStat("Invaze mimozemstanu");
 
 int main() 
 {
     RandomSeed(time(nullptr));
     SetOutput("output.log");
-    Print("Start simulace\n\n");
 
-
-    for (int year = 2023; year < 2030; year++) {
+    for (int i = 0; i < 100; i++) {
         Init(startTime, endTime);
+
         underGround.Clear();
         afterWinter.Clear();
         growth.Clear();
@@ -44,6 +45,7 @@ int main()
         cars.Clear();
         grainWarehouse.Clear();
 
+        // Nejdrive spocitame, kolik zbylo psenice a pak na ni delame sklizen
         Quality* quality = new Quality();
         quality->Activate();
         (new Harvest)->Activate(tenMonths + oneDay);
@@ -51,14 +53,15 @@ int main()
 
         Run();
 
-        q(quality->getQuality());
+        qualityStat(quality->getQuality());
         double flour = (quality->getQuality() / 100.0) * Uniform(0.7, 0.8) * grainWarehouse.Free();
-        p(flour);
-        Print("finalni mnozstvi mouky: %ft\n", flour);
+        flourStat(flour);
     }
-    p.Output();
-    q.Output();
-    oprava.Output();
-    vykecavani.Output();
+    flourStat.Output();
+    qualityStat.Output();
+    harvesterRepair.Output();
+    grainDeployment.Output();
+    hectaresLeft.Output();
+    aliensStat.Output();
     return 0;
 }

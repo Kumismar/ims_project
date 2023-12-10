@@ -11,26 +11,26 @@ const int fiveMonths = 60 * 24 * 150;
 
 void Quality::Behavior() 
 {
+    // Faktory/poruchy definujici ztratu psenice za dany rok
     (new Aliens(this))->Activate();
     Wait(1);
     if (this->_quality == 0) {
         this->Cancel();
     }
-    Print("Pred zimou mame %d%% psenky\n", this->_quality);
+
+    // Zimni poruchy
     Seize(underGround);
     (new Frost(this))->Activate();
     Wait(fiveMonths);
-    Print("Po zime mame %d%% psenky\n", this->_quality);
     Release(underGround);
 
+    // Jarni/letni poruchy
     Seize(growth);
     Wait(fiveMonths);
     (new Drought(this))->Activate();
     (new HeavyRains(this))->Activate();
     (new Pests(this))->Activate();
-    Print("Pockali jsme 5 mesicu az vyrosteme juchu\n");
     Release(growth);
-
 }
 
 

@@ -7,6 +7,7 @@ const int oneDay = 10 * 60;
 
 void DayCycle::Behavior() 
 {
+    // Priznak, jestli je den nebo noc a tedy se pracuje na sklizni nebo ne
     while (true) {
         Wait(oneDay);
         (new Night)->Activate();

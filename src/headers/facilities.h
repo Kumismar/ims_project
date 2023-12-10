@@ -12,7 +12,9 @@ extern Store hectares;
 extern Store cars;
 extern Store grainWarehouse;
 
-extern Stat p;
-extern Stat q;
-extern Stat oprava;
-extern Stat vykecavani;
+extern Stat flourStat;
+extern Stat qualityStat;
+extern Stat harvesterRepair;
+extern Stat grainDeployment;
+extern Stat hectaresLeft;
+extern Stat aliensStat;

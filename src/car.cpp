@@ -13,12 +13,11 @@ void Car::Behavior()
 {
     // Cesta, vylozeni, cesta zpet
     Wait(Normal(carTravel, carTravelDisperse));
+    // 10 minut vyklada zrni, ale muze se zakecat
     double deploymentTime = 10 + Exponential(3.0);
     Wait(deploymentTime);
-    vykecavani(deploymentTime);
+    grainDeployment(deploymentTime);
     Leave(grainWarehouse, grainLoadTons);
-    Print("Stav zrni ve skladu: %d\n", grainWarehouse.Free());
     Wait(Normal(carTravel, carTravelDisperse));
-    Print("Kara se vratila\n");
     Leave(cars, 1);
 }

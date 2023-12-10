@@ -6,9 +6,11 @@ const int oneMonth = 24 * 60 * 30;
 
 void Harvest::Behavior()
 {
+    // Pokud prileteli mimozemstani, sklizen vubec nenastane
     Seize(aliensCame);
     Release(aliensCame);
+    // Po mesici je zbytek urody zahozen
     Wait(oneMonth);
-    Print("Mesic ubehl, zbylo %d hektaru\n", hectares.Free());
+    hectaresLeft(hectares.Free());
     Enter(hectares, hectares.Free());
 }
