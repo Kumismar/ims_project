@@ -15,7 +15,7 @@ LDLIBS = -lsimlib
 
 VALGRIND_OPTIONS := --leak-check=full --show-leak-kinds=all --track-origins=yes --log-file=valgrind.log
 
-.PHONY: all run clean valgrind
+.PHONY: all run clean valgrind doc
 
 all: $(EXECUTABLE)
 
@@ -35,6 +35,7 @@ valgrind:
 
 clean: 
 	@rm -rvf $(BUILD) $(EXECUTABLE) output.txt
+	@cd doc/src/ && make clean
 
-debug: $(EXECUTABLE)
-	/usr/bin/gdb $^
+doc: 
+	@cd doc/src/ && make

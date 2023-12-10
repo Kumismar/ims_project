@@ -19,7 +19,4 @@ void Aliens::Behavior()
         aliensStat(1);
         hectaresLeft(hectares.Capacity());
     }
-    else {
-        aliensStat(0);
-    }
 }

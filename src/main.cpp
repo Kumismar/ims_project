@@ -22,7 +22,7 @@ Store cars("", 2);
 Store grainWarehouse("", 1000);
 
 Stat flourStat("Mnozstvi mouky");
-Stat qualityStat("Kvalita obili");
+Stat qualityStat("Kvalita psenice");
 Stat harvesterRepair("Oprava kombajnu");
 Stat grainDeployment("Vykecavani ridice u mlyna");
 Stat hectaresLeft("Nesklizene hektary pole");
@@ -35,7 +35,7 @@ int main()
     RandomSeed(time(nullptr));
     SetOutput("output.log");
 
-    for (int i = 0; i < 100; i++) {
+    for (int i = 0; i < 10000; i++) {
         Init(startTime, endTime);
 
         underGround.Clear();

@@ -3,7 +3,7 @@
 #include "headers/car.h"
 #include <simlib.h>
 
-const int twoDays = 24 * 60 * 2;
+const int repair = 24 * 60 * 2;
 const double harvesting = 16.0;
 const double harvestingDispersion = 1.5;
 
@@ -19,7 +19,7 @@ void Harvester::Behavior()
         int probab = (int)(Uniform(0, 100));
         if (probab < 2) {
             // Porucha kombajnu
-            double waittime = Exponential(twoDays);
+            double waittime = Exponential(repair);
             Wait(waittime);
             harvesterRepair(waittime);
         }
