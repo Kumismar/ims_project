@@ -7,10 +7,6 @@ const int twoDays = 24 * 60 * 2;
 const double harvesting = 16.0;
 const double harvestingDispersion = 1.5;
 
-Harvester::Harvester(int quality)
-{
-    this->_quality = quality;
-}
 
 void Harvester::Behavior() 
 {

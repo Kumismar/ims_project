@@ -15,6 +15,9 @@ void Quality::Behavior()
     (new Aliens(this))->Activate();
     Wait(1);
     if (this->_quality == 0) {
+        qualityNum = 0;
+        qualityStat(0);
+        flourStat(0);
         this->Cancel();
     }
 
@@ -26,11 +29,13 @@ void Quality::Behavior()
 
     // Jarni/letni poruchy
     Seize(growth);
-    Wait(fiveMonths);
     (new Drought(this))->Activate();
     (new HeavyRains(this))->Activate();
     (new Pests(this))->Activate();
+    Wait(fiveMonths);
     Release(growth);
+    qualityStat(this->_quality);
+    qualityNum = this->_quality;
 }
 
 

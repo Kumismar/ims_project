@@ -27,6 +27,8 @@ Stat grainDeployment("Vykecavani ridice u mlyna");
 Stat hectaresLeft("Nesklizene hektary pole");
 Stat aliensStat("Invaze mimozemstanu");
 
+int qualityNum = 100;
+
 int main() 
 {
     RandomSeed(time(nullptr));
@@ -48,14 +50,11 @@ int main()
         // Nejdrive spocitame, kolik zbylo psenice a pak na ni delame sklizen
         Quality* quality = new Quality();
         quality->Activate();
+
         (new Harvest)->Activate(tenMonths + oneDay);
-        (new Harvester(quality->getQuality()))->Activate(tenMonths + oneDay);
+        (new Harvester)->Activate(tenMonths + oneDay);
 
         Run();
-
-        qualityStat(quality->getQuality());
-        double flour = (quality->getQuality() / 100.0) * Uniform(0.7, 0.8) * grainWarehouse.Free();
-        flourStat(flour);
     }
     flourStat.Output();
     qualityStat.Output();

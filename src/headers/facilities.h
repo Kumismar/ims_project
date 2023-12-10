@@ -18,3 +18,5 @@ extern Stat harvesterRepair;
 extern Stat grainDeployment;
 extern Stat hectaresLeft;
 extern Stat aliensStat;
+
+extern int qualityNum;

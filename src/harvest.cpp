@@ -13,4 +13,7 @@ void Harvest::Behavior()
     Wait(oneMonth);
     hectaresLeft(hectares.Free());
     Enter(hectares, hectares.Free());
+
+    double flour = (qualityNum / 100.0) * Uniform(0.7, 0.8) * grainWarehouse.Free();
+    flourStat(flour);
 }
