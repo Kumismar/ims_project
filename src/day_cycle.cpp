@@ -10,13 +10,8 @@ void DayCycle::Behavior()
     // Priznak, jestli je den nebo noc a tedy se pracuje na sklizni nebo ne
     while (true) {
         Wait(oneDay);
-        (new Night)->Activate();
+        Seize(day);
         Wait(oneNight);
         Release(day);
     }
-}
-
-void Night::Behavior()
-{
-    Seize(day);
 }

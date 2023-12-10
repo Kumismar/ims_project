@@ -4,6 +4,7 @@
 #include "headers/facilities.h"
 #include "headers/harvester.h"
 #include "headers/harvest.h"
+#include "headers/day_cycle.h"
 
 const int tenMonths = 60 * 24 * 300;
 const int oneDay = 60 * 24;
@@ -51,6 +52,7 @@ int main()
         Quality* quality = new Quality();
         quality->Activate();
 
+        (new DayCycle)->Activate(tenMonths + oneDay);
         (new Harvest)->Activate(tenMonths + oneDay);
         (new Harvester)->Activate(tenMonths + oneDay);
 
