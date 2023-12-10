@@ -8,6 +8,8 @@
 #include "headers/constants.h"
 #include "headers/aliens.h"
 
+const int fiveMonths = 60 * 24 * 150;
+
 void Quality::Behavior() 
 {
     (new Aliens(this))->Activate();

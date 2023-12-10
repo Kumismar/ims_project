@@ -10,8 +10,8 @@ Frost::Frost(Quality* quality)
 
 void Frost::Behavior() 
 {
-    const int probab = (int)(Random() * 100);
-    const int percentToLose = (int)(Random() * 20);
+    const int probab = (int)(Uniform(0, 100));
+    const int percentToLose = (int)(Uniform(0, 20));
     if (probab < 33) {
         this->_quality->setQuality(this->_quality->getQuality() - percentToLose);
         Print("Mraz nam znicil %d%% psenice\n", percentToLose);

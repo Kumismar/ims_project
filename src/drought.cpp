@@ -10,8 +10,8 @@ Drought::Drought(Quality* quality)
 
 void Drought::Behavior() 
 {
-    const int probab = (int)(Random() * 100);
-    const int percentToLose = (int)(Random() * 20);
+    const int probab = (int)(Uniform(0, 100));
+    const int percentToLose = (int)(Uniform(0, 20));
     if (probab < 25) {
         const int quality = this->_quality->getQuality();
         const int toChange = std::round(quality / 100.0 * percentToLose);
