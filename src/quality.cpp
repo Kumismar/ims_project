@@ -5,7 +5,6 @@
 #include "headers/heavy_rains.h"
 #include "headers/pests.h"
 #include "headers/facilities.h"
-#include "headers/constants.h"
 #include "headers/aliens.h"
 
 const int fiveMonths = 60 * 24 * 150;
