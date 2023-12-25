@@ -35,7 +35,7 @@ valgrind:
 
 clean: 
 	@rm -rvf $(BUILD) $(EXECUTABLE) output.txt
-	@cd doc/src/ && make clean
+	@cd doc/ && make clean
 
 doc: 
-	@cd doc/src/ && make
+	@cd doc/ && make
